@@ -5,7 +5,6 @@ function MaskingText({ text, guessedLetters }) {
     const maskedCharecter = getMaskedCharacters(text, guessedLetters)
     return (
         <>
-            {console.log()}
             {                
                 maskedCharecter.map((letter, index) => {
                     return (
