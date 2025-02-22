@@ -11,7 +11,7 @@ function TextInputFormContainer() {
         event.preventDefault();
         console.log("Thank you for submit.", value);
         if(value) {
-            navigate('/play');
+            navigate(`/play`, {state: {wordSelected: value}});
         }
         
     }
