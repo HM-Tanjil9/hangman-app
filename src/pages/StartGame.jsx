@@ -4,7 +4,7 @@ import TextInputFormContainer from '../components/TextInputForm/TextInputFormCon
 function StartGame() {
   return (
     <>
-        <h1 className='mb-2 text-4xl font-bold text-amber-400 text-center'>Start the game</h1>
+        <h1 className='mb-2 text-4xl font-bold text-amber-400'>Start the game</h1>
         <TextInputFormContainer/>
     </>
   )

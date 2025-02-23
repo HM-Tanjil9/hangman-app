@@ -1,3 +1,4 @@
+
 export function getMaskedCharacters(orginalWords, guessedLetters) {
     guessedLetters = guessedLetters.map( letter => letter.toUpperCase() );
     const guessedLetterSet = new Set(guessedLetters);
@@ -7,6 +8,7 @@ export function getMaskedCharacters(orginalWords, guessedLetters) {
         } else {
             return "_";
         }
-    })
+    });
     return result;
+    
 }
