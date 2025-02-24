@@ -18,14 +18,13 @@ function PlayGame() {
     }
     let guessed = getMaskedCharacters(state?.wordSelected, guessedLetters)?.join('');
     let original = state?.wordSelected?.toUpperCase(); 
-    console.log('o', original);
      
     if(step >= 8 ) {
         return(
             <>  
                 <h1 className="text-4xl font-bold ">Game Over </h1>
                 <h1 className="text-2xl text-red-500">Sorry you loose the game</h1>
-                <Link className="text-blue-500 underline" to="/start">Play again.</Link>
+                <Link className="text-blue-500 underline" to="/">Play again.</Link>
             </>
         )
     }else if((original === undefined)) {
@@ -49,7 +48,7 @@ function PlayGame() {
                             <p className="text-xl">Thank You 🐸</p>
                         </div>
                         <div className="flex flex-col">
-                            <Link className="text-blue-500 underline" to="/start">Play again</Link>
+                            
                             <Link className="text-blue-500 underline" to="/">
                                 <Button styleType='secondary' text='Home'/>
                             </Link>
@@ -72,7 +71,7 @@ function PlayGame() {
                 </div>
                 <Hangman className="lg:w-8/12 md:h-10/12 w-full" step={step}/>
             </div>
-            <Link className="text-blue-500 underline" to="/start">Restart</Link>
+            <Link className="text-blue-500 underline" to="/">Restart</Link>
         </>
     )} 
 }
