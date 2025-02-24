@@ -11,13 +11,15 @@ function PlayGame() {
     const [guessedLetters, setGuessedLetters] = useState([]);
     const [step, setStep] = useState(0);
     function handleLetterClick(letter) {
-        if(!state.wordSelected.toUpperCase().includes(letter)) {            
+        if(!state?.wordSelected?.toUpperCase().includes(letter)) {            
             setStep(step + 1);
         }  
         setGuessedLetters([...guessedLetters, letter])
     }
-    let guessed = getMaskedCharacters(state.wordSelected, guessedLetters).join('');
-    let original = state.wordSelected.toUpperCase();    
+    let guessed = getMaskedCharacters(state?.wordSelected, guessedLetters)?.join('');
+    let original = state?.wordSelected?.toUpperCase(); 
+    console.log('o', original);
+     
     if(step >= 8 ) {
         return(
             <>  
@@ -26,7 +28,18 @@ function PlayGame() {
                 <Link className="text-blue-500 underline" to="/start">Play again.</Link>
             </>
         )
-    } else if(original === guessed) {
+    }else if((original === undefined)) {
+        return(
+            <>  
+                <p className="text-3xl font-bold">404 Not Found</p>
+                <p className="text-red-700">Maybe something wrong</p>
+                <Link className="text-blue-500 underline" to="/">
+                    <Button styleType='secondary' text='Home'/>
+                </Link>
+            </>
+        )
+    } 
+    else if(original === guessed) {
         return(
             <>
                 <h1>
@@ -45,22 +58,23 @@ function PlayGame() {
                 </h1>
             </>
         )
-    } else return(
+    } else {
+        return(
         <>
             <h1 className="text-5xl text-orange-400 font-semibold mb-2">Guess the word</h1>
-            <p className="text-xl">Hint : ({state.hint})</p>
+            <p className="text-xl">Hint : ({state?.hint})</p>
             <div  className="my-6">
-                <MaskingText text={state.wordSelected} guessedLetters={guessedLetters}/>
+                <MaskingText text={state?.wordSelected} guessedLetters={guessedLetters}/>
             </div>
             <div className="flex flex-col justify-center items-center m-4">
                 <div className="lg:w-8/12 md:h-10/12 w-full">
-                    <LetterButtons text={state.wordSelected} guessedLetters={guessedLetters} onLetterClick={handleLetterClick}/>
+                    <LetterButtons text={state?.wordSelected} guessedLetters={guessedLetters} onLetterClick={handleLetterClick}/>
                 </div>
                 <Hangman className="lg:w-8/12 md:h-10/12 w-full" step={step}/>
             </div>
             <Link className="text-blue-500 underline" to="/start">Restart</Link>
         </>
-    )
+    )} 
 }
 
 export default PlayGame;

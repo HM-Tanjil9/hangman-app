@@ -2,7 +2,7 @@ import React from 'react';
 const ALPHABET = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"]
 
 function LetterButtons({ text, guessedLetters, onLetterClick}) {
-    const orginalLetters = new Set(text.toUpperCase().split(''));
+    const orginalLetters = new Set(text?.toUpperCase().split(''));
     const guessedLetterSet = new Set(guessedLetters);
     const buttonStyle = function(letter) {
         if(guessedLetterSet.has(letter)) {

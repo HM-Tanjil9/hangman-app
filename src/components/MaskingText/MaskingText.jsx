@@ -6,7 +6,7 @@ function MaskingText({ text, guessedLetters }) {
     return (
         <>
             {                   
-                maskedCharecter.map((letter, index) => {
+                maskedCharecter?.map((letter, index) => {
                     return (
                         <span key={index} className='text-4xl text-gray-800 tracking-widest mx-1'>
                             {letter}
